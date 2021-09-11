@@ -48,11 +48,17 @@ func main() {
 
 	pod := types.NamespacedName{
 		Namespace: "demo",
-		Name:      "voyager-community-dbcc6b476-5scx6",
+		Name:      "voyager-test-ingress-5d995688d9-28qjx",
 	}
 	out, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("ls", "-l"))
 	if err != nil {
 		panic(err)
 	}
 	fmt.Println(out)
+
+	out2, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("/bin/kill", "-USR2", "1"))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(out2)
 }
