@@ -5,7 +5,7 @@ go 1.17
 require (
 	k8s.io/apimachinery v0.21.1
 	k8s.io/client-go v0.21.1
-	kmodules.xyz/client-go v0.0.0-20210909114628-15cac6c74063
+	kmodules.xyz/client-go v0.0.0-20210912120006-35d39db8c246
 )
 
 require (

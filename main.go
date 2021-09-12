@@ -49,7 +49,7 @@ func main() {
 
 	pod := types.NamespacedName{
 		Namespace: "demo",
-		Name:      "voyager-test-ingress-5d995688d9-28qjx",
+		Name:      "voyager-test-ingress-869dc8975-4shdv",
 	}
 	out, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("ps"))
 	if err != nil {
@@ -63,7 +63,7 @@ func main() {
 	}
 	fmt.Println(out2)
 
-	time.Sleep(10 * time.Second)
+	time.Sleep(2 * time.Second)
 	out3, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("ps"))
 	if err != nil {
 		panic(err)

@@ -337,7 +337,7 @@ k8s.io/klog/v2
 # k8s.io/utils v0.0.0-20210707171843-4b05e18ac7d9
 ## explicit; go 1.12
 k8s.io/utils/integer
-# kmodules.xyz/client-go v0.0.0-20210909114628-15cac6c74063
+# kmodules.xyz/client-go v0.0.0-20210912120006-35d39db8c246
 ## explicit; go 1.12
 kmodules.xyz/client-go/tools/exec
 # sigs.k8s.io/structured-merge-diff/v4 v4.1.2
