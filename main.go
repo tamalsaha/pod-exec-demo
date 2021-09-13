@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"path/filepath"
+	"strings"
 	"time"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -49,7 +50,7 @@ func main() {
 
 	pod := types.NamespacedName{
 		Namespace: "demo",
-		Name:      "voyager-test-ingress-869dc8975-4shdv",
+		Name:      "voyager-test-ingress-754d884cf-dmwrd",
 	}
 	out, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("ps"))
 	if err != nil {
@@ -57,7 +58,16 @@ func main() {
 	}
 	fmt.Println(out)
 
-	out2, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("/bin/kill", "-USR2", "1"))
+	out22, err := exec.Exec(
+		config,
+		pod,
+		exec.Container("haproxy"),
+		exec.Command("cat", "/shared/haproxy.pid"))
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(out22)
+	out2, err := exec.Exec(config, pod, exec.Container("haproxy"), exec.Command("/bin/kill", "-SIGHUP", strings.TrimSpace(out22)))
 	if err != nil {
 		panic(err)
 	}
